@@ -11,7 +11,36 @@ pub struct Card {
 
 impl Card {
     pub fn fight(&self, other: &Card) -> FightResult {
-        todo!()
+
+        let card_one = self.damage - other.health;
+        let card_two = other.damage - self.health;
+    
+        let mut fight = -1;
+
+        if card_one <= 0 && card_two <= 0 {
+            fight = 0;
+        }
+        else if card_one <= 0 && card_two > 0 {
+            fight = 1;
+        }
+        else if card_one > 0 && card_two <= 0 {
+            fight = 2;
+        }
+        else if card_one > 0 && card_two > 0 {
+            fight = 3;
+        }
+        
+        match fight{
+            
+            // If both cards deal enough damage to kill one another, return a tie
+            0 => FightResult::Tie,
+            // If this card deals enough damage to kill the other card, return a win
+            1 => FightResult::Win,
+            // If the other card deals enough damage to kill this card, return a loss
+            2 => FightResult::Loss,
+            // If neither card deals enough damage to kill the other, return a draw
+            _ => FightResult::Draw,
+        }
     }
 
     /// Give a play by play of the battle
