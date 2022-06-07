@@ -10,6 +10,10 @@ mod shop;
 mod strings;
 
 pub enum FightResult {
+    Win,
+    Loss,
+    Tie,
+    Draw
     // TODO: Add variants for win, loss, tie, and draw
 }
 
