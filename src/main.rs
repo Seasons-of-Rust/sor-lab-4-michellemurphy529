@@ -13,8 +13,7 @@ pub enum FightResult {
     Win,
     Loss,
     Tie,
-    Draw
-    // TODO: Add variants for win, loss, tie, and draw
+    Draw, // TODO: Add variants for win, loss, tie, and draw
 }
 
 fn main() {

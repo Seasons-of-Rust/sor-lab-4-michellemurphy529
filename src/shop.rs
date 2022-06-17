@@ -26,14 +26,16 @@ impl Shop {
     /// this store wins, FightResult::Loss if this store loses, and a
     /// FightResult::Tie if both stores win the same number of battles.
     pub fn fight_store(&self, other: &Shop) -> FightResult {
-        match (self.total_damage() >= other.total_health(), other.total_damage() >= self.total_health()) {
-            
+        match (
+            self.total_damage() >= other.total_health(),
+            other.total_damage() >= self.total_health(),
+        ) {
             // If this store wins, return a win
             (true, _) => FightResult::Win,
             // If the other store wins, return a loss
             (false, _) => FightResult::Loss,
             // If both stores deal enough damage to kill one another, return a tie
-            (_, _) => FightResult::Tie
+            (_, _) => FightResult::Tie,
         }
     }
 }
