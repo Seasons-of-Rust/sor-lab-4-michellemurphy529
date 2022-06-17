@@ -31,9 +31,9 @@ impl Shop {
             other.total_damage() >= self.total_health(),
         ) {
             // If this store wins, return a win
-            (true, _) => FightResult::Win,
+            (true, false) => FightResult::Win,
             // If the other store wins, return a loss
-            (false, _) => FightResult::Loss,
+            (false, true) => FightResult::Loss,
             // If both stores deal enough damage to kill one another, return a tie
             (_, _) => FightResult::Tie,
         }
